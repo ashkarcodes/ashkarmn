@@ -8,7 +8,7 @@ import {
   Server, ShieldCheck, Smartphone, Sparkles, TestTube2, X,
 } from "lucide-react";
 import resumeAsset from "../assets/ashkar-resume.pdf.asset.json";
-import profileAsset from "../assets/ashkar-profile.png.asset.json";
+import profileAsset from "../assets/ashkar-profile-2026.png.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -92,7 +92,7 @@ function Portfolio() {
     <main>
       <section id="home" className="relative flex min-h-[760px] items-center overflow-hidden border-b border-border pt-24">
         <div className="hero-grid absolute inset-0" aria-hidden="true"/><div className="hero-glow absolute right-0 top-0 size-[40rem]" aria-hidden="true"/>
-        <div className="relative mx-auto grid w-full max-w-7xl items-center gap-16 px-5 py-20 lg:grid-cols-[1.1fr_.9fr] lg:px-8">
+        <div className="relative z-10 mx-auto grid w-full max-w-7xl items-center gap-10 px-5 py-20 md:grid-cols-[minmax(0,3fr)_minmax(15rem,2fr)] md:gap-8 lg:gap-14 lg:px-8">
           <div className="max-w-3xl animate-enter">
             <p className="eyebrow"><span className="status-dot"/> Available for software engineering opportunities</p>
             <h1 className="mt-7 text-5xl font-bold leading-[1.05] sm:text-6xl lg:text-7xl">Hi, I'm <span className="text-primary">Ashkar M N</span></h1>
