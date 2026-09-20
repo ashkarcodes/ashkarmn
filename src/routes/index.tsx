@@ -8,6 +8,7 @@ import {
   Server, ShieldCheck, Smartphone, Sparkles, TestTube2, X,
 } from "lucide-react";
 import resumeAsset from "../assets/ashkar-resume.pdf.asset.json";
+import profileAsset from "../assets/ashkar-profile.png.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -65,7 +66,7 @@ function Portfolio() {
 
   useEffect(() => {
     const timer = window.setInterval(() => setTyped((value) => (value + 1) % specializations.length), 2400);
-    const observer = new IntersectionObserver((entries) => entries.forEach((entry) => { if (entry.isIntersecting) setActive(entry.target.id[0].toUpperCase() + entry.target.id.slice(1)); }), { rootMargin: "-35% 0px -55%" });
+    const observer = new IntersectionObserver((entries) => entries.forEach((entry) => { if (entry.isIntersecting) setActive(entry.target.id.charAt(0).toUpperCase() + entry.target.id.slice(1)); }), { rootMargin: "-35% 0px -55%" });
     nav.forEach((item) => { const el = document.getElementById(item.toLowerCase()); if (el) observer.observe(el); });
     return () => { window.clearInterval(timer); observer.disconnect(); };
   }, []);
@@ -97,14 +98,12 @@ function Portfolio() {
             <h1 className="mt-7 text-5xl font-bold leading-[1.05] sm:text-6xl lg:text-7xl">Hi, I'm <span className="text-primary">Ashkar M N</span></h1>
             <p className="mt-6 text-xl font-medium text-foreground sm:text-2xl">Software Engineer <span className="text-muted-foreground">| Full-Stack & Backend Developer</span></p>
             <div className="mt-4 h-7 font-mono text-sm text-primary" aria-live="polite"><span className="text-muted-foreground">&gt; </span>{specializations[typed]}<span className="typing-cursor">_</span></div>
+            <HeroPortrait className="hero-portrait-mobile" />
             <p className="mt-7 max-w-2xl text-base leading-8 text-muted-foreground">I'm an MCA graduate and aspiring Software Engineer with hands-on experience building full-stack and backend applications using Python, Django, JavaScript, REST APIs, MySQL, and MongoDB. My testing and automation experience adds a strong focus on quality and reliability.</p>
             <div className="mt-9 flex flex-wrap gap-3"><button onClick={() => jump("Projects")} className="btn-primary">View My Work <ArrowRight size={16}/></button><a className="btn-secondary" href={resumeAsset.url} download="Ashkar-M-N-Resume.pdf"><Download size={16}/> Download Resume</a></div>
             <div className="mt-8 flex items-center gap-3"><a className="icon-btn" href="https://linkedin.com/in/ashkarmn" target="_blank" rel="noreferrer" aria-label="LinkedIn"><Linkedin size={18}/></a><span className="icon-btn opacity-40" aria-label="GitHub profile not yet available"><Github size={18}/></span><a className="icon-btn" href="mailto:ashkarbinnazar@gmail.com" aria-label="Email Ashkar"><Mail size={18}/></a></div>
           </div>
-          <div className="relative mx-auto w-full max-w-md">
-            <div className="portrait-shell"><div className="portrait-code" aria-label="Professional portrait placeholder for Ashkar M N"><Code2 size={58}/><strong>ASHKAR M N</strong><span>Portrait reserved</span></div></div>
-            <div className="float-card left-0 top-12"><Server size={16}/><span>Django · REST APIs</span></div><div className="float-card bottom-12 right-0"><ShieldCheck size={16}/><span>Quality-focused</span></div>
-          </div>
+          <HeroPortrait className="hero-portrait-desktop" />
         </div>
       </section>
 
@@ -158,7 +157,8 @@ function Education({years,degree,school}:{years:string;degree:string;school:stri
 function ContactLine({icon:Icon,text,href}:{icon:typeof Mail;text:string;href?:string}) { const body=<><Icon className="text-primary" size={18}/><span>{text}</span></>; return href?<a className="flex items-center gap-3 hover:text-foreground" href={href} target={href.startsWith("http")?"_blank":undefined} rel="noreferrer">{body}</a>:<div className="flex items-center gap-3">{body}</div> }
 function Case({title,text}:{title:string;text:string}) { return <div><h4 className="font-semibold text-primary">{title}</h4><p className="mt-2 text-sm leading-6 text-muted-foreground">{text}</p></div> }
 function ProjectVisual({project}:{project:Project}) { return <div className={`project-visual visual-${project.tone}`} role="img" aria-label={`${project.title} application interface preview`}><div className="browser-bar"><span/><span/><span/><em>{project.title.toLowerCase().replaceAll(" ","-")}.app</em></div><div className="mock-layout"><div className="mock-sidebar"><b>AM</b><i/><i/><i/><i/></div><div className="mock-main"><div className="mock-heading"><div><small>{project.category}</small><strong>{project.title}</strong></div><button aria-hidden="true">Open</button></div><div className="mock-stats"><span/><span/><span/></div><div className="mock-content"><div/><div/></div></div></div></div> }
+function HeroPortrait({className}:{className:string}) { return <div className={`portrait-stage ${className}`}><div className="portrait-ambient" aria-hidden="true"/><img className="portrait-image" src={profileAsset.url} alt="Ashkar M N - Software Engineer" width={800} height={800} fetchPriority="high" /></div> }
 
 const contactSchema=z.object({name:z.string().trim().min(2,"Please enter your name.").max(100),email:z.string().trim().email("Enter a valid email address.").max(255),subject:z.string().trim().min(3,"Please add a subject.").max(120),message:z.string().trim().min(10,"Please add a little more detail.").max(1500)});
-function ContactForm(){ const [errors,setErrors]=useState<Record<string,string>>({}); const [sent,setSent]=useState(false); const submit=(e:FormEvent<HTMLFormElement>)=>{e.preventDefault();const form=new FormData(e.currentTarget);const parsed=contactSchema.safeParse(Object.fromEntries(form));if(!parsed.success){setErrors(Object.fromEntries(parsed.error.issues.map(i=>[String(i.path[0]),i.message])));setSent(false);return}setErrors({});setSent(true);e.currentTarget.reset()}; return <form onSubmit={submit} noValidate className="contact-form"><div className="grid gap-5 sm:grid-cols-2"><Field name="name" label="Name" error={errors.name}/><Field name="email" label="Email" type="email" error={errors.email}/></div><Field name="subject" label="Subject" error={errors.subject}/><label><span>Message</span><textarea name="message" rows={5} maxLength={1500} aria-invalid={!!errors.message}/>{errors.message&&<small>{errors.message}</small>}</label><button className="btn-primary" type="submit">Send Message <ArrowRight size={16}/></button>{sent&&<div className="success" role="status"><Check size={16}/> Message validated. Your email app can be used to send it to Ashkar.</div>}</form> }
-function Field({name,label,type="text",error}:{name:string;label:string;type?:string;error?:string}) { return <label><span>{label}</span><input name={name} type={type} maxLength={name==="email"?255:120} aria-invalid={!!error}/>{error&&<small>{error}</small>}</label> }
+function ContactForm(){ const [errors,setErrors]=useState<Record<string,string>>({}); const [sent,setSent]=useState(false); const submit=(e:FormEvent<HTMLFormElement>)=>{e.preventDefault();const form=new FormData(e.currentTarget);const parsed=contactSchema.safeParse(Object.fromEntries(form));if(!parsed.success){setErrors(Object.fromEntries(parsed.error.issues.map(i=>[String(i.path[0]),i.message])));setSent(false);return}setErrors({});setSent(true);e.currentTarget.reset()}; return <form onSubmit={submit} noValidate className="contact-form"><div className="grid gap-5 sm:grid-cols-2"><Field name="name" label="Name" error={errors["name"]}/><Field name="email" label="Email" type="email" error={errors["email"]}/></div><Field name="subject" label="Subject" error={errors["subject"]}/><label><span>Message</span><textarea name="message" rows={5} maxLength={1500} aria-invalid={!!errors["message"]}/>{errors["message"]&&<small>{errors["message"]}</small>}</label><button className="btn-primary" type="submit">Send Message <ArrowRight size={16}/></button>{sent&&<div className="success" role="status"><Check size={16}/> Message validated. Your email app can be used to send it to Ashkar.</div>}</form> }
+function Field({name,label,type="text",error}:{name:string;label:string;type?:string;error?:string|undefined}) { return <label><span>{label}</span><input name={name} type={type} maxLength={name==="email"?255:120} aria-invalid={!!error}/>{error&&<small>{error}</small>}</label> }
