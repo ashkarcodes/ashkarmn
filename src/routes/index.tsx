@@ -1,7 +1,12 @@
 import { createFileRoute } from "@tanstack/react-router";
 import * as Dialog from "@radix-ui/react-dialog";
 import { z } from "zod";
+import emailjs from "@emailjs/browser";
 import { useEffect, useState, type FormEvent } from "react";
+
+const EMAILJS_PUBLIC_KEY = "hRLuhsJlLwnau95hK";
+const EMAILJS_SERVICE_ID = "service_pw6oamb";
+const EMAILJS_TEMPLATE_ID = "template_h5uijka";
 import {
   ArrowRight, ArrowUp, Braces, Check, ChevronRight, Code2, Database, Download,
   ExternalLink, Github, Globe2, Layers3, Linkedin, Mail, MapPin, Menu, Phone,
