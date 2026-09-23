@@ -14,6 +14,11 @@ import {
 } from "lucide-react";
 import resumeAsset from "../assets/ashkar-resume.pdf.asset.json";
 import profilePortrait from "../assets/ashkar-portrait-transparent.png";
+import cyberAsset from "../assets/projects/cyber.png.asset.json";
+import newsRaterAsset from "../assets/projects/news-rater.png.asset.json";
+import eLearnAsset from "../assets/projects/e-learn.png.asset.json";
+import carParkingAsset from "../assets/projects/car-parking.png.asset.json";
+import spreeAsset from "../assets/projects/spree.png.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
