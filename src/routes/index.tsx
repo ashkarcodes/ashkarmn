@@ -111,7 +111,7 @@ function Portfolio() {
             <HeroPortrait className="hero-portrait-mobile" />
             <p className="mt-7 max-w-2xl text-base leading-8 text-muted-foreground">I'm an MCA graduate and aspiring Software Engineer with hands-on experience building full-stack and backend applications using Python, Django, JavaScript, REST APIs, MySQL, and MongoDB. My testing and automation experience adds a strong focus on quality and reliability.</p>
             <div className="mt-9 flex flex-wrap gap-3"><button onClick={() => jump("Projects")} className="btn-primary">View My Work <ArrowRight size={16}/></button><a className="btn-secondary" href={resumeAsset.url} download="Ashkar-M-N-Resume.pdf"><Download size={16}/> Download Resume</a></div>
-            <div className="mt-8 flex items-center gap-3"><a className="icon-btn" href="https://www.linkedin.com/in/ashkarmn/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><Linkedin size={18}/></a><span className="icon-btn opacity-40" aria-label="GitHub profile not yet available"><Github size={18}/></span><a className="icon-btn" href="mailto:ashkarbinnazar@gmail.com" aria-label="Email Ashkar"><Mail size={18}/></a></div>
+            <div className="mt-8 flex items-center gap-3"><a className="icon-btn" href="https://www.linkedin.com/in/ashkarmn/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><Linkedin size={18}/></a><a className="icon-btn" href="https://github.com/ashkarcodes" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><Github size={18}/></a><a className="icon-btn" href="mailto:ashkarbinnazar@gmail.com" aria-label="Email Ashkar"><Mail size={18}/></a></div>
           </div>
           <HeroPortrait className="hero-portrait-desktop" />
         </div>
