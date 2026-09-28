@@ -95,8 +95,7 @@ function Portfolio() {
         </nav>
         <button className="icon-btn lg:hidden" onClick={() => setMenuOpen(!menuOpen)} aria-expanded={menuOpen} aria-label="Toggle navigation">{menuOpen ? <X/> : <Menu/>}</button>
       </div>
-      {menuOpen && <nav className="border-t border-border bg-background px-5 py-4 lg:hidden">{nav.map((item) => <button key={item} onClick={() => jump(item)} className="block w-full border-b border-border/60 py-3 text-left text-sm">{item}</button>)}<a className="btn-primary mt-4 w-full" href={resumeAsset.url} download><Download size={15}/> Download Resume</a></nav>}
-    </header>
+      {menuOpen && <nav className="border-t border-border bg-background px-5 py-4 lg:hidden">{nav.map((item) => <button key={item} onClick={() => jump(item)} className="block w-full border-b border-border/60 py-3 text-left text-sm">{item}</button>)}<a className="btn-primary mt-4 w-full" href={`${import.meta.env.BASE_URL}Ashkari.pdf`} download><Download size={15}/> Download Resume</a>
 
     <main>
       <section id="home" className="relative flex min-h-[760px] items-center overflow-hidden border-b border-border pt-24">
