@@ -35,11 +35,11 @@ import {
 } from "lucide-react";
 
 import profilePortrait from "../assets/ashkar-portrait-transparent.png";
-import cyberAsset from "../assets/projects/cyber.png.asset.json";
-import newsRaterAsset from "../assets/projects/news-rater.png.asset.json";
-import eLearnAsset from "../assets/projects/e-learn.png.asset.json";
-import carParkingAsset from "../assets/projects/car-parking.png.asset.json";
-import spreeAsset from "../assets/projects/spree.png.asset.json";
+import cyberAsset from "../assets/projects/cyber.png";
+import newsRaterAsset from "../assets/projects/news-rater.png";
+import eLearnAsset from "../assets/projects/e-learn.png";
+import carParkingAsset from "../assets/projects/car-parking.png";
+import spreeAsset from "../assets/projects/spree.png";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -238,7 +238,7 @@ const projects: Project[] = [
     stack: ["Python", "Django", "Flutter", "MySQL", "REST APIs"],
     contribution:
       "Designed the architecture and built authentication, RBAC, database integration, security checks, and VirusTotal and LeakCheck integrations.",
-    image: cyberAsset.url,
+    image: cyberAsset,
     repo: "https://github.com/ashkarcodes/AI-Cybershield",
     features: [
       "Phishing URL analysis",
@@ -259,7 +259,7 @@ const projects: Project[] = [
     stack: ["Python", "MySQL", "MongoDB"],
     contribution:
       "Built authentication, content management, database integration, and upload, verification, and purchase workflows.",
-    image: newsRaterAsset.url,
+    image: newsRaterAsset,
     repo: "https://github.com/ashkarcodes/NewsRater",
     features: [
       "Video submission",
@@ -280,7 +280,7 @@ const projects: Project[] = [
     stack: ["PHP", "MySQL", "HTML", "CSS", "JavaScript"],
     contribution:
       "Developed application functionality, database workflows, and student, teacher, and administrator access.",
-    image: eLearnAsset.url,
+    image: eLearnAsset,
     repo: "https://github.com/ashkarcodes/E-Learning-Platform",
     features: [
       "Course management",
@@ -301,7 +301,7 @@ const projects: Project[] = [
     stack: ["PHP", "MySQL", "HTML", "CSS", "JavaScript"],
     contribution:
       "Implemented availability, reservation, SQL-based tracking, database integration, and booking management.",
-    image: carParkingAsset.url,
+    image: carParkingAsset,
     repo: "https://github.com/ashkarcodes/Car-parking-system",
     features: [
       "Live availability",
@@ -322,7 +322,7 @@ const projects: Project[] = [
     stack: ["Playwright", "TypeScript", "Postman", "JMeter", "POM"],
     contribution:
       "Designed manual and E2E scenarios, Playwright POM automation, API validation, and performance/load tests.",
-    image: spreeAsset.url,
+    image: spreeAsset,
     repo: "https://github.com/ashkarcodes/spree-storefront-automation",
     features: [
       "Regression automation",
