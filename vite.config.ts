@@ -14,10 +14,8 @@ export default defineConfig({
   tanstackStart: {
     prerender: {
       enabled: true,
-      
-      crawlLinks: true,
+      crawlLinks: false,
     },
-
     server: {
       entry: "server",
     },
