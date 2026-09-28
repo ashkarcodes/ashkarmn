@@ -12,7 +12,6 @@ import {
   ExternalLink, Github, Globe2, Layers3, Linkedin, Mail, MapPin, Menu, Phone,
   Server, ShieldCheck, Smartphone, Sparkles, TestTube2, X,
 } from "lucide-react";
-import resumeAsset from "../assets/ashkar-resume.pdf.asset.json";
 import profilePortrait from "../assets/ashkar-portrait-transparent.png";
 import cyberAsset from "../assets/projects/cyber.png.asset.json";
 import newsRaterAsset from "../assets/projects/news-rater.png.asset.json";
