@@ -91,7 +91,7 @@ function Portfolio() {
         </button>
         <nav className="hidden items-center gap-1 lg:flex" aria-label="Main navigation">
           {nav.map((item) => <button key={item} onClick={() => jump(item)} className={`nav-link ${active === item ? "nav-link-active" : ""}`}>{item}</button>)}
-          <a className="btn-primary ml-3" href={resumeAsset.url} download="Ashkar-M-N-Resume.pdf"><Download size={15}/> Resume</a>
+          <a className="btn-primary ml-3" href={`${import.meta.env.BASE_URL}Ashkari.pdf`} download="Ashkar-M-N-Resume.pdf"><Download size={15}/> Resume</a>
         </nav>
         <button className="icon-btn lg:hidden" onClick={() => setMenuOpen(!menuOpen)} aria-expanded={menuOpen} aria-label="Toggle navigation">{menuOpen ? <X/> : <Menu/>}</button>
       </div>
