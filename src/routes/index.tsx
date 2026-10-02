@@ -816,12 +816,13 @@ function Portfolio() {
                   text="linkedin.com/in/ashkarmn"
                   href="https://www.linkedin.com/in/ashkarmn/"
                 />
-              </div>
 
-              <p className="mt-8 border-l-2 border-primary pl-4 text-sm leading-6 text-muted-foreground">
-                GitHub will be added when Ashkar's verified profile URL is
-                available.
-              </p>
+                <ContactLine
+                  icon={Github}
+                  text="github.com/ashkarcodes"
+                  href="https://github.com/ashkarcodes"
+                />
+              </div>
             </div>
 
             <ContactForm />
