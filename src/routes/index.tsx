@@ -87,10 +87,16 @@ const nav = [
 ];
 
 const specializations = [
+  "Backend Developer",
+  "Full-Stack Developer",
   "Python Developer",
   "Django Developer",
-  "Full-Stack Developer",
-  "Backend Developer",
+  "Flutter Developer",
+  "QA Engineer",
+  "PHP Developer",
+  "Java Developer",
+  "C++ Developer",
+  "Prompt Engineer",
 ];
 
 const skills = [
